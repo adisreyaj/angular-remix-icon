@@ -1,12 +1,14 @@
 {
   "name": "angular-remix-icon",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "build:lib": "ng build angular-remix-icon --prod"
   },
   "private": true,
   "dependencies": {
@@ -23,12 +25,18 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~0.1001.7",
     "@angular/cli": "~10.1.7",
     "@angular/compiler-cli": "~10.1.6",
-    "@types/node": "^12.11.1",
+    "@types/del": "^4.0.0",
+    "@types/fs-extra": "^9.0.2",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
+    "@types/uppercamelcase": "^3.0.0",
     "codelyzer": "^6.0.0",
+    "del": "^6.0.0",
+    "fs-extra": "^9.0.1",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
@@ -36,9 +44,13 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "ng-packagr": "^10.1.0",
+    "nodemon": "^2.0.6",
     "protractor": "~7.0.0",
+    "remixicon": "^2.5.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.2"
+    "typescript": "^4.0.5",
+    "uppercamelcase": "^3.0.0"
   }
 }

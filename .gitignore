@@ -44,3 +44,10 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+*.log
+
+.vscode
+scripts/*.js
+
+#Icons TS files
+**/lib/icons
