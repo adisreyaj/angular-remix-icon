@@ -2,25 +2,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {
-  RiAncientGateFill,
+  RiNotification2Fill,
+  RiChat3Fill,
+  RiSettings3Fill,
   RiHome2Fill,
-  AngularRemixIconModule,
+  RiMailUnreadLine,
+  RiSendPlaneFill,
+  RemixIconModule,
 } from 'angular-remix-icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 const icons = {
-  RiAncientGateFill,
+  RiNotification2Fill,
+  RiChat3Fill,
+  RiSettings3Fill,
   RiHome2Fill,
+  RiMailUnreadLine,
+  RiSendPlaneFill,
 };
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AngularRemixIconModule.configure(icons),
-  ],
+  imports: [BrowserModule, AppRoutingModule, RemixIconModule.configure(icons)],
   providers: [],
   bootstrap: [AppComponent],
 })
