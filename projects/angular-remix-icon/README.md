@@ -1,11 +1,11 @@
 <h1 align="center">Angular Remix Icon</h1>
 <p align="center">
+    <img src="https://img.shields.io/badge/Angular-10-red?style=for-the-badge&logo=angular" alt="angular">
   <a href="https://github.com/adisreyaj/angular-remix-icon/blob/master/LICENSE.md">
-    <img alt="License: Apache License 2.0" src="https://img.shields.io/badge/License-Apache License 2.0-yellow.svg" target="_blank" />
+    <img alt="License: Apache License 2.0" src="https://img.shields.io/badge/License-Apache License 2.0-yellow.svg?style=for-the-badge&logo=apache" target="_blank" />
   </a>
-    <img src="https://img.shields.io/badge/Angular-10-red" alt="angular">
   <a href="https://twitter.com/AdiSreyaj">
-    <img alt="Twitter: Adithya Sreyaj" src="https://img.shields.io/twitter/follow/AdiSreyaj.svg?style=social" target="_blank" />
+    <img alt="Twitter: Adithya Sreyaj" src="https://img.shields.io/twitter/follow/AdiSreyaj.svg?style=for-the-badge&logo=twitter" target="_blank" />
   </a>
 </p>
 
@@ -32,7 +32,7 @@ npm install angular-remix-icon
 _2. Import the module to `App Module`_
 
 ```ts
-import { AngularRemixIconModule } from 'angular-remix-icon'
+import { RemixIconModule } from 'angular-remix-icon'
 ```
   
 _3. Import Required Icons_
@@ -44,7 +44,7 @@ For the library to work, the required icons needs to be configured first
 import {
   RiAncientGateFill,
   RiHome2Fill,
-  AngularRemixIconModule,
+  RemixIconModule,
 } from 'angular-remix-icon';
 
 // Configure the required icons before hand
@@ -56,7 +56,7 @@ const icons = {
 @NgModule({
   imports: [
     BrowserModule,
-    AngularRemixIconModule.configure(icons),
+    RemixIconModule.configure(icons),
   ],
   ...
 })

@@ -17,7 +17,7 @@ import { upperCamelCase } from './utils/utils';
   styles: [
     `
       :host {
-        display: inline-block;
+        display: block;
         width: 24px;
         height: 24px;
         fill: currentColor;

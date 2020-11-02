@@ -7,7 +7,7 @@ import { Icons } from './icon.provider';
   declarations: [AngularRemixIconComponent],
   exports: [AngularRemixIconComponent],
 })
-export class AngularRemixIconModule {
+export class RemixIconModule {
   constructor(@Optional() private icons: Icons) {
     if (!this.icons) {
       throw new Error(
@@ -24,9 +24,9 @@ export class AngularRemixIconModule {
    */
   static configure(icons: {
     [key: string]: string;
-  }): ModuleWithProviders<AngularRemixIconModule> {
+  }): ModuleWithProviders<RemixIconModule> {
     return {
-      ngModule: AngularRemixIconModule,
+      ngModule: RemixIconModule,
       providers: [{ provide: Icons, multi: true, useValue: icons }],
     };
   }
