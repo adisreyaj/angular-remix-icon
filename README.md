@@ -3,7 +3,7 @@
   <a href="https://github.com/adisreyaj/angular-remix-icon/blob/master/LICENSE.md">
     <img alt="License: Apache License 2.0" src="https://img.shields.io/badge/License-Apache License 2.0-yellow.svg" target="_blank" />
   </a>
-    <img src="https://img.shields.io/badge/Angular-10-red" alt="angular">
+    <img src="https://img.shields.io/badge/Angular-11-red" alt="angular">
   <a href="https://twitter.com/AdiSreyaj">
     <img alt="Twitter: Adithya Sreyaj" src="https://img.shields.io/twitter/follow/AdiSreyaj.svg?style=social" target="_blank" />
   </a>
