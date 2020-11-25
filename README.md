@@ -11,7 +11,6 @@
 
 > Use Remix Icons in your angular application
 
-
 ![Angular Remix Icon](./angular-remix-icon.png)
 
 Wrapper for using remix icons in your angular application.
@@ -19,7 +18,7 @@ All the icons are injected as svgs and you can apply color and sizes to them wit
 
 ### Demo
 
-Coming soon!
+https://admiring-noether-0b971e.netlify.app/
 
 ### Usage
 
@@ -32,9 +31,9 @@ npm install angular-remix-icon
 _2. Import the module to `App Module`_
 
 ```ts
-import { AngularRemixIconModule } from 'angular-remix-icon'
+import { AngularRemixIconModule } from "angular-remix-icon";
 ```
-  
+
 _3. Import Required Icons_
 
 For the library to work, the required icons needs to be configured first
@@ -67,11 +66,10 @@ You can get the name from the [Remix Icon](https://remixicon.com) website
 
 ![Angular Remix Icon](./remix-icon-example.png)
 
-
 The required icons can be imported as see above. For eg: If you need the `home-3-line`, You have to import the corresponding Icon:
 
 ```ts
-import { RiHome3Line } from 'angular-remix-icon';
+import { RiHome3Line } from "angular-remix-icon";
 ```
 
 _4. Use in template_
@@ -85,23 +83,26 @@ You can now start using the icons like so:
 ### Styling
 
 If you want change color or size of the icons,
+
 ```html
 <rmx-icon name="home-3-line" style="color:blue"></rmx-icon>
 ```
+
 or
+
 ```css
-.blue-icon{
+.blue-icon {
   color: blue;
 }
-.large-icon{
+.large-icon {
   width: 30px;
   height: 30px;
 }
 ```
+
 ```html
 <rmx-icon name="home-3-line" class="blue-icon large-icon"></rmx-icon>
 ```
-
 
 ## 🤝 Contributing
 
