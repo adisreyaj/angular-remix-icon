@@ -8,6 +8,6 @@
     "declaration": true
   },
   "angularCompilerOptions": {
-    "enableIvy": false
+    "compilationMode": "partial"
   }
 }
