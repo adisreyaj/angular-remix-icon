@@ -51,3 +51,5 @@ scripts/*.js
 
 #Icons TS files
 **/lib/icons
+
+**/*.tgz
