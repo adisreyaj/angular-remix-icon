@@ -2,10 +2,13 @@ import * as del from 'del';
 import * as fs from 'fs-extra';
 import * as upperCamelCase from 'uppercamelcase';
 
-const iconsSourceFolder = '../node_modules/remixicon/icons';
-const iconsDestinationFolder = '../projects/angular-remix-icon/src/lib/icons';
-const indexFile = '../projects/angular-remix-icon/src/lib/icons.ts';
-const iconTsTemplate = fs.readFileSync('./template/icon.tpl', 'utf-8');
+const iconsSourceFolder = './node_modules/remixicon/icons';
+const iconsDestinationFolder = './projects/angular-remix-icon/src/lib/icons';
+const indexFile = './projects/angular-remix-icon/src/lib/icons.ts';
+const iconTsTemplate = fs.readFileSync(
+  `${__dirname}/template/icon.tpl`,
+  'utf-8'
+);
 
 (async () => {
   const readCategories = () => {
@@ -26,8 +29,8 @@ const iconTsTemplate = fs.readFileSync('./template/icon.tpl', 'utf-8');
   };
 
   await del(`${iconsDestinationFolder}`, { force: true });
-  await del(`${indexFile}`, { force: true });
   await del(`${iconsDestinationFolder}/**/*`, { force: true });
+  await del(`${indexFile}`, { force: true });
 
   fs.mkdirSync(`${iconsDestinationFolder}`);
   const categories = readCategories();
