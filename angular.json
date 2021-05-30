@@ -62,7 +62,6 @@
             "main": "projects/angular-remix-icon-demo/src/main.ts",
             "polyfills": "projects/angular-remix-icon-demo/src/polyfills.ts",
             "tsConfig": "projects/angular-remix-icon-demo/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "projects/angular-remix-icon-demo/src/favicon.ico",
               "projects/angular-remix-icon-demo/src/assets"
@@ -70,7 +69,13 @@
             "styles": [
               "projects/angular-remix-icon-demo/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
