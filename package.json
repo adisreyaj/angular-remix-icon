@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "generate": "tsc scripts/generate.ts && node scripts/generate.js",
-    "build:lib": "ng build angular-remix-icon"
+    "build:lib": "ng build angular-remix-icon --configuration production"
   },
   "private": false,
   "dependencies": {
