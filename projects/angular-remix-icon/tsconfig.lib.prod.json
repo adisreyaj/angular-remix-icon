@@ -6,8 +6,5 @@
     "sourceMap": false,
     "removeComments": true,
     "declaration": true
-  },
-  "angularCompilerOptions": {
-    "compilationMode": "partial"
   }
 }
