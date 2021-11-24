@@ -20,6 +20,10 @@
       "angular-remix-icon": [
         "dist/angular-remix-icon/angular-remix-icon",
         "dist/angular-remix-icon"
+      ],
+      "test": [
+        "dist/test/test",
+        "dist/test"
       ]
     }
   }
