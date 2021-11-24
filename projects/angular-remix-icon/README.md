@@ -100,6 +100,17 @@ or
 <rmx-icon name="home-3-line" class="blue-icon large-icon"></rmx-icon>
 ```
 
+## Versions
+
+| Angular | Angular Remix Icon |
+| ------- | ------------------ |
+| v13     | v3                 |
+| v12     | v2                 |
+
+`angular-remix-icon@3` ships in the new **Angular Package Format** release as part of Angular v13.
+
+Read here: https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome.<br />
