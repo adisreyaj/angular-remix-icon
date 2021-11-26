@@ -1,24 +1,21 @@
+<p align="center">
+    <img src="https://raw.githubusercontent.com/adisreyaj/angular-remix-icon/master/angular-remix-icon.png" alt="Angular Remix Icon">
+</p>
 <h1 align="center">Angular Remix Icon</h1>
 <p align="center">
+    <img src="https://img.shields.io/badge/Angular-11-red?style=for-the-badge&logo=angular" alt="angular">
   <a href="https://github.com/adisreyaj/angular-remix-icon/blob/master/LICENSE.md">
-    <img alt="License: Apache License 2.0" src="https://img.shields.io/badge/License-Apache License 2.0-yellow.svg" target="_blank" />
+    <img alt="License: Apache License 2.0" src="https://img.shields.io/badge/License-Apache License 2.0-yellow.svg?style=for-the-badge&logo=apache" target="_blank" />
   </a>
-    <img src="https://img.shields.io/badge/Angular-11-red" alt="angular">
   <a href="https://twitter.com/AdiSreyaj">
-    <img alt="Twitter: Adithya Sreyaj" src="https://img.shields.io/twitter/follow/AdiSreyaj.svg?style=social" target="_blank" />
+    <img alt="Twitter: Adithya Sreyaj" src="https://img.shields.io/twitter/follow/AdiSreyaj.svg?style=for-the-badge&logo=twitter" target="_blank" />
   </a>
 </p>
 
 > Use Remix Icons in your angular application
 
-![Angular Remix Icon](./angular-remix-icon.png)
-
 Wrapper for using remix icons in your angular application.
 All the icons are injected as svgs and you can apply color and sizes to them with ease.
-
-### Demo
-
-https://admiring-noether-0b971e.netlify.app/
 
 ### Usage
 
@@ -31,7 +28,7 @@ npm install angular-remix-icon
 _2. Import the module to `App Module`_
 
 ```ts
-import { AngularRemixIconModule } from "angular-remix-icon";
+import { RemixIconModule } from "angular-remix-icon";
 ```
 
 _3. Import Required Icons_
@@ -43,7 +40,7 @@ For the library to work, the required icons needs to be configured first
 import {
   RiAncientGateFill,
   RiHome2Fill,
-  AngularRemixIconModule,
+  RemixIconModule,
 } from 'angular-remix-icon';
 
 // Configure the required icons before hand
@@ -55,7 +52,7 @@ const icons = {
 @NgModule({
   imports: [
     BrowserModule,
-    AngularRemixIconModule.configure(icons),
+    RemixIconModule.configure(icons),
   ],
   ...
 })
@@ -64,7 +61,7 @@ export class AppModule {}
 
 You can get the name from the [Remix Icon](https://remixicon.com) website
 
-![Angular Remix Icon](./remix-icon-example.png)
+![Angular Remix Icon](https://raw.githubusercontent.com/adisreyaj/angular-remix-icon/master/remix-icon-example.png)
 
 The required icons can be imported as see above. For eg: If you need the `home-3-line`, You have to import the corresponding Icon:
 
@@ -103,6 +100,17 @@ or
 ```html
 <rmx-icon name="home-3-line" class="blue-icon large-icon"></rmx-icon>
 ```
+
+## Versions
+
+| Angular | Angular Remix Icon |
+| ------- | ------------------ |
+| v13     | v3                 |
+| v12     | v2                 |
+
+`angular-remix-icon@3` ships in the new **Angular Package Format** release as part of Angular v13.
+
+Read here: https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
 
 ## 🤝 Contributing
 
