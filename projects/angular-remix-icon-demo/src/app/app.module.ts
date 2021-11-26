@@ -1,14 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
 import {
-  RiNotification2Fill,
+  RemixIconModule,
   RiChat3Fill,
-  RiSettings3Fill,
   RiHome2Fill,
   RiMailUnreadLine,
+  RiNotification2Fill,
   RiSendPlaneFill,
-  RemixIconModule,
+  RiSettings3Fill,
 } from 'angular-remix-icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
