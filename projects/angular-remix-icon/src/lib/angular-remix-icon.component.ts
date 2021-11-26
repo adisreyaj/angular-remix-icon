@@ -7,7 +7,6 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-
 import { Icons } from './icon.provider';
 import { upperCamelCase } from './utils/utils';
 
@@ -37,10 +36,11 @@ export class AngularRemixIconComponent implements OnChanges {
     private icons: Icons
   ) {}
   ngOnChanges(changes: SimpleChanges): void {
-    const icons = Object.assign({}, ...((this.icons as any) as object[]));
-    const svg = icons[`Ri${upperCamelCase(changes.name.currentValue)}`] || '';
+    const icons = Object.assign({}, ...(this.icons as any as object[]));
+    const svg =
+      icons[`Ri${upperCamelCase(changes['name'].currentValue)}`] || '';
     if (!svg) {
-      console.warn(`Icon not found: ${changes.name.currentValue}\n`);
+      console.warn(`Icon not found: ${changes['name'].currentValue}\n`);
     }
     this.elem.nativeElement.innerHTML = svg;
     this.changeDetector.markForCheck();
