@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">Angular Remix Icon</h1>
 <p align="center">
-    <img src="https://img.shields.io/badge/Angular-13-red?style=for-the-badge&logo=angular" alt="angular">
+    <img src="https://img.shields.io/badge/Angular-14-red?style=for-the-badge&logo=angular" alt="angular">
   <a href="https://github.com/adisreyaj/angular-remix-icon/blob/master/LICENSE.md">
     <img alt="License: Apache License 2.0" src="https://img.shields.io/badge/License-Apache License 2.0-yellow.svg?style=for-the-badge&logo=apache" target="_blank" />
   </a>
@@ -104,11 +104,12 @@ or
 ## Versions
 
 | Angular | Angular Remix Icon |
-| ------- | ------------------ |
+|---------|--------------------|
+| v14     | v4                 |
 | v13     | v3                 |
 | v12     | v2                 |
 
-`angular-remix-icon@3` ships in the new **Angular Package Format** release as part of Angular v13.
+From version `angular-remix-icon@3` package get shipped in the new **Angular Package Format** introduced as part of Angular v13.
 
 Read here: https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
 
