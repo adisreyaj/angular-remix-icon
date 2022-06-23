@@ -30,6 +30,7 @@
     "@angular/cli": "^14.0.3",
     "@angular/compiler-cli": "^14.0.3",
     "@types/del": "^4.0.0",
+    "@types/estree": "^0.0.51",
     "@types/fs-extra": "^9.0.2",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
