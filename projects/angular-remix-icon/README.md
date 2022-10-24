@@ -1,6 +1,9 @@
+<p align="center">
+    <img src="https://raw.githubusercontent.com/adisreyaj/angular-remix-icon/master/angular-remix-icon.png" alt="Angular Remix Icon">
+</p>
 <h1 align="center">Angular Remix Icon</h1>
 <p align="center">
-    <img src="https://img.shields.io/badge/Angular-11-red?style=for-the-badge&logo=angular" alt="angular">
+    <img src="https://img.shields.io/badge/Angular-14-red?style=for-the-badge&logo=angular" alt="angular">
   <a href="https://github.com/adisreyaj/angular-remix-icon/blob/master/LICENSE.md">
     <img alt="License: Apache License 2.0" src="https://img.shields.io/badge/License-Apache License 2.0-yellow.svg?style=for-the-badge&logo=apache" target="_blank" />
   </a>
@@ -10,8 +13,6 @@
 </p>
 
 > Use Remix Icons in your angular application
-
-![Angular Remix Icon](https://raw.githubusercontent.com/adisreyaj/angular-remix-icon/master/angular-remix-icon.png)
 
 Wrapper for using remix icons in your angular application.
 All the icons are injected as svgs and you can apply color and sizes to them with ease.
@@ -103,11 +104,12 @@ or
 ## Versions
 
 | Angular | Angular Remix Icon |
-| ------- | ------------------ |
+|---------|--------------------|
+| v14     | v4                 |
 | v13     | v3                 |
 | v12     | v2                 |
 
-`angular-remix-icon@3` ships in the new **Angular Package Format** release as part of Angular v13.
+From version `angular-remix-icon@3` package get shipped in the new **Angular Package Format** introduced as part of Angular v13.
 
 Read here: https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
 
