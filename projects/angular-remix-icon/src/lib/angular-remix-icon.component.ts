@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { Icons } from './icon.provider';
 import { upperCamelCase } from './utils/utils';
+import { IconName } from './icon-names';
 
 @Component({
   selector: 'rmx-icon',
@@ -29,7 +30,7 @@ export class AngularRemixIconComponent implements OnChanges {
     return `rmx-icon rmx-icon-${this.name}`;
   }
 
-  @Input() name!: string;
+  @Input() name!: IconName;
   constructor(
     private elem: ElementRef,
     private changeDetector: ChangeDetectorRef,

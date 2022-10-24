@@ -5,8 +5,13 @@ import * as upperCamelCase from 'uppercamelcase';
 const iconsSourceFolder = './node_modules/remixicon/icons';
 const iconsDestinationFolder = './projects/angular-remix-icon/src/lib/icons';
 const indexFile = './projects/angular-remix-icon/src/lib/icons.ts';
+const indexTypeFile = './projects/angular-remix-icon/src/lib/icon-names.ts';
 const iconTsTemplate = fs.readFileSync(
   `${__dirname}/template/icon.tpl`,
+  'utf-8'
+);
+const iconNameTypeTsTemplate = fs.readFileSync(
+  `${__dirname}/template/icon-name.tpl`,
   'utf-8'
 );
 
@@ -28,12 +33,15 @@ const iconTsTemplate = fs.readFileSync(
     return fs.readFileSync(filePath);
   };
 
-  await del(`${iconsDestinationFolder}`, { force: true });
-  await del(`${iconsDestinationFolder}/**/*`, { force: true });
-  await del(`${indexFile}`, { force: true });
+  await del(`${iconsDestinationFolder}`, {force: true});
+  await del(`${iconsDestinationFolder}/**/*`, {force: true});
+  await del(`${indexFile}`, {force: true});
+  await del(`${indexTypeFile}`, {force: true});
 
   fs.mkdirSync(`${iconsDestinationFolder}`);
   const categories = readCategories();
+
+  const iconNames: string[] = [];
   categories.forEach((category) => {
     fs.mkdirSync(`${iconsDestinationFolder}/${category}`);
     const iconsInCategory = readIconsInCategory(category);
@@ -63,6 +71,22 @@ const iconTsTemplate = fs.readFileSync(
         indexFile,
         `export { Ri${exportName} } from './icons/${category}/${iconName}';\n`
       );
+
+      iconNames.push(iconName);
     });
   });
+
+  const iconNamesForTSType = iconNames.reduce((result, next) => {
+    if (!result) {
+      return `\'${next}\'`;
+    }
+    return result + `\n | \'${next}\'`;
+  }, '');
+
+  const typeString = iconNameTypeTsTemplate
+    .replace(/__ICON_NAMES__/g, iconNamesForTSType);
+
+  console.log('WRITING...', `${indexTypeFile}`);
+
+  fs.writeFileSync(indexTypeFile, typeString);
 })();
