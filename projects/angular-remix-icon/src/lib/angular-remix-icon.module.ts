@@ -3,8 +3,11 @@ import { ModuleWithProviders, NgModule, Optional } from '@angular/core';
 import { AngularRemixIconComponent } from './angular-remix-icon.component';
 import { Icons } from './icon.provider';
 
+/**
+ * @deprecated - Use the new `provideRemixIcon` function instead.
+ */
 @NgModule({
-  declarations: [AngularRemixIconComponent],
+  imports: [AngularRemixIconComponent],
   exports: [AngularRemixIconComponent],
 })
 export class RemixIconModule {

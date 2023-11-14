@@ -1,6 +1,6 @@
 {
   "name": "angular-remix-icon",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -15,22 +15,22 @@
   },
   "private": false,
   "dependencies": {
-    "@angular/animations": "^16.0.5",
-    "@angular/common": "^16.0.5",
-    "@angular/compiler": "^16.0.5",
-    "@angular/core": "^16.0.5",
-    "@angular/forms": "^16.0.5",
-    "@angular/platform-browser": "^16.0.5",
-    "@angular/platform-browser-dynamic": "^16.0.5",
-    "@angular/router": "^16.0.5",
+    "@angular/animations": "^17.0.2",
+    "@angular/common": "^17.0.2",
+    "@angular/compiler": "^17.0.2",
+    "@angular/core": "^17.0.2",
+    "@angular/forms": "^17.0.2",
+    "@angular/platform-browser": "^17.0.2",
+    "@angular/platform-browser-dynamic": "^17.0.2",
+    "@angular/router": "^17.0.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.1",
-    "zone.js": "~0.13.0"
+    "zone.js": "~0.14.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^16.0.5",
-    "@angular/cli": "^16.0.5",
-    "@angular/compiler-cli": "^16.0.5",
+    "@angular-devkit/build-angular": "^17.0.0",
+    "@angular/cli": "^17.0.0",
+    "@angular/compiler-cli": "^17.0.2",
     "@types/del": "^4.0.0",
     "@types/estree": "^0.0.51",
     "@types/fs-extra": "^9.0.2",
@@ -48,13 +48,13 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "ng-packagr": "^16.0.1",
+    "ng-packagr": "^17.0.0",
     "nodemon": "^2.0.6",
     "protractor": "~7.0.0",
-    "remixicon": "^3.3.0",
+    "remixicon": "^3.5.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "5.0.4",
+    "typescript": "5.2.2",
     "uppercamelcase": "^3.0.0"
   }
 }
