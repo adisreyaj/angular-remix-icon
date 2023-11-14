@@ -1,5 +1,6 @@
 import { ApplicationConfig } from '@angular/core';
 import {
+  provideRemixIcon,
   RiChat3Fill,
   RiHome2Fill,
   RiMailUnreadLine,
@@ -7,7 +8,6 @@ import {
   RiSendPlaneFill,
   RiSettings3Fill,
 } from 'angular-remix-icon';
-import { provideRemixIcon } from 'projects/angular-remix-icon/src/public-api';
 
 const ICONS = {
   RiNotification2Fill,
