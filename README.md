@@ -101,19 +101,19 @@ or
 <rmx-icon name="home-3-line" class="blue-icon large-icon"></rmx-icon>
 ```
 
+
 ## Versions
 
-| Angular | Angular Remix Icon |
-|---------| ------------------ |
-| \>= v16 | v6                 |
-| v15     | v5                 |
-| v14     | v4                 |
-| v13     | v3                 |
-| v12     | v2                 |
+| Angular   | Angular Remix Icon |
+|-----------|--------------------|
+| \>= v18   | v8                 |
+| v16 & v17 | v6                 |
+| v15       | v5                 |
+| v14       | v4                 |
+| v13       | v3                 |
+| v12       | v2                 |
 
-From version `angular-remix-icon@3` package get shipped in the new **Angular Package Format** introduced as part of Angular v13.
-
-Read here: https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
+`v8` we switched to signal input for icons.
 
 ## 🤝 Contributing
 

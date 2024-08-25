@@ -4,6 +4,7 @@ import {
   ElementRef,
   HostBinding,
   inject,
+  input,
   Input,
   OnChanges,
   SimpleChanges,
@@ -28,8 +29,7 @@ import { upperCamelCase } from './utils/utils';
   standalone: true,
 })
 export class AngularRemixIconComponent implements OnChanges {
-  @Input({ required: true })
-  public name!: IconName;
+  public name = input.required<IconName>();
 
   private readonly elem: ElementRef = inject(ElementRef);
   private readonly changeDetector: ChangeDetectorRef =
@@ -41,14 +41,14 @@ export class AngularRemixIconComponent implements OnChanges {
 
   @HostBinding('class')
   public get classes(): string {
-    return `rmx-icon rmx-icon-${this.name}`;
+    return `rmx-icon rmx-icon-${this.name()}`;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     const svg =
-      this.icons[`Ri${upperCamelCase(changes['name'].currentValue)}`] || '';
+      this.icons[`Ri${upperCamelCase(this.name())}`] || '';
     if (!svg) {
-      console.warn(`Icon not found: ${changes['name'].currentValue}\n`);
+      console.warn(`Icon not found: ${this.name()}\n`);
     }
     this.elem.nativeElement.innerHTML = svg;
     this.changeDetector.markForCheck();
