@@ -1,6 +1,6 @@
 {
   "name": "angular-remix-icon",
-  "version": "8.0.0",
+  "version": "8.2.0",
   "author": {
     "name": "Adithya Sreyaj",
     "email": "adi.sreyaj@gmail.com",
@@ -19,8 +19,8 @@
   },
   "homepage": "https://github.com/adisreyaj/angular-remix-icon/",
   "peerDependencies": {
-    "@angular/common": ">=18.0.0",
-    "@angular/core": ">=18.0.0"
+    "@angular/common": ">=18.0.0 <22.0.0",
+    "@angular/core": ">=18.0.0 <22.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

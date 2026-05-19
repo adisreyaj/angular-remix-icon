@@ -1,6 +1,6 @@
-import * as del from 'del';
+import del from 'del';
 import * as fs from 'fs-extra';
-import * as upperCamelCase from 'uppercamelcase';
+import upperCamelCase from 'uppercamelcase';
 
 const iconsSourceFolder = './node_modules/remixicon/icons';
 const iconsDestinationFolder = './projects/angular-remix-icon/src/lib/icons';

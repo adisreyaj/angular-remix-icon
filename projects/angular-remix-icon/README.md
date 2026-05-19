@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">Angular Remix Icon</h1>
 <p align="center">
-    <img src="https://img.shields.io/badge/Angular-14-red?style=for-the-badge&logo=angular" alt="angular">
+    <img src="https://img.shields.io/badge/Angular-21-red?style=for-the-badge&logo=angular" alt="angular">
   <a href="https://github.com/adisreyaj/angular-remix-icon/blob/master/LICENSE.md">
     <img alt="License: Apache License 2.0" src="https://img.shields.io/badge/License-Apache License 2.0-yellow.svg?style=for-the-badge&logo=apache" target="_blank" />
   </a>
@@ -103,16 +103,17 @@ or
 
 ## Versions
 
-| Angular   | Angular Remix Icon |
-|-----------|--------------------|
-| \>= v18   | v8                 |
-| v16 & v17 | v6                 |
-| v15       | v5                 |
-| v14       | v4                 |
-| v13       | v3                 |
-| v12       | v2                 |
+| Angular        | Angular Remix Icon |
+|----------------|--------------------|
+| v21            | v8.2+              |
+| \>= v18        | v8                 |
+| v16 & v17      | v6                 |
+| v15            | v5                 |
+| v14            | v4                 |
+| v13            | v3                 |
+| v12            | v2                 |
 
-`v8` we switched to signal input for icons.
+`v8` uses signal inputs for icon names. `v8.2` adds Angular 21 support and fixes icon updates when the `name` input changes.
 
 ## 🤝 Contributing
 
