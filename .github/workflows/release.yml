@@ -3,8 +3,15 @@ name: Release
 on:
   workflow_dispatch:
     inputs:
+      mode:
+        description: 'Release mode'
+        type: choice
+        options:
+          - bump-and-release
+          - publish-only
+        default: bump-and-release
       version:
-        description: 'Version bump type (patch, minor, major) or custom version (e.g., 8.0.0)'
+        description: 'Bump type (patch, minor, major) or exact version (e.g. 8.2.0). Ignored when mode is publish-only.'
         required: true
         default: 'patch'
 
@@ -40,10 +47,19 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Bump library version
-        id: bump
-        working-directory: projects/angular-remix-icon
+      - name: Set release version
+        id: release
         run: |
+          MODE="${{ github.event.inputs.mode }}"
+
+          if [[ "$MODE" == "publish-only" ]]; then
+            VERSION=$(node -p "require('./projects/angular-remix-icon/package.json').version")
+            echo "Publishing existing version from package.json: $VERSION"
+            echo "new_version=$VERSION" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          cd projects/angular-remix-icon
           INPUT="${{ github.event.inputs.version }}"
           if [[ "$INPUT" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             npm version "$INPUT" --no-git-tag-version --allow-same-version
@@ -53,10 +69,10 @@ jobs:
             echo "Invalid version input: $INPUT" >&2
             exit 1
           fi
-          echo "new_version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
-
-      - name: Sync root package.json version
-        run: npm version ${{ steps.bump.outputs.new_version }} --no-git-tag-version --allow-same-version
+          VERSION=$(node -p "require('./package.json').version")
+          cd ../..
+          npm version "$VERSION" --no-git-tag-version --allow-same-version
+          echo "new_version=$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Generate icons
         run: pnpm run generate
@@ -76,19 +92,32 @@ jobs:
       - name: E2E tests
         run: pnpm run test:e2e
 
-      - name: Commit version bump and tag
+      - name: Commit version bump
+        if: github.event.inputs.mode != 'publish-only'
         run: |
-          VERSION="${{ steps.bump.outputs.new_version }}"
-          git add package.json pnpm-lock.yaml projects/angular-remix-icon/package.json
-          git commit -m "chore: release v${VERSION}"
+          VERSION="${{ steps.release.outputs.new_version }}"
+          git add package.json projects/angular-remix-icon/package.json
+          if git diff --staged --quiet; then
+            echo "No version file changes to commit."
+          else
+            git commit -m "chore: release v${VERSION}"
+          fi
+
+      - name: Tag and push release
+        run: |
+          VERSION="${{ steps.release.outputs.new_version }}"
+          if git rev-parse "v${VERSION}" >/dev/null 2>&1; then
+            echo "Tag v${VERSION} already exists." >&2
+            exit 1
+          fi
           git tag -a "v${VERSION}" -m "Release v${VERSION}"
           git push --follow-tags
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ steps.bump.outputs.new_version }}
-          name: Release v${{ steps.bump.outputs.new_version }}
+          tag_name: v${{ steps.release.outputs.new_version }}
+          name: Release v${{ steps.release.outputs.new_version }}
           generate_release_notes: true
 
       - name: Publish to npm
