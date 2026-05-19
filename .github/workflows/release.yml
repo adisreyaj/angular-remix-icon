@@ -1,0 +1,76 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version bump type (patch, minor, major) or custom version (e.g., 8.0.0)'
+        required: true
+        default: 'patch'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Bump version
+        id: bump
+        run: |
+          INPUT="${{ github.event.inputs.version }}"
+          CURRENT=$(node -p "require('./package.json').version")
+          
+          if [[ "$INPUT" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            NEW_VERSION="$INPUT"
+          else
+            NEW_VERSION=$(node -p "const p=require('./package.json');const v=p.version.split('.');if('$INPUT'==='major')v[0]++;else if('$INPUT'==='minor')v[1]++;else v[2]++;v.join('.')")
+            node -e "const p=require('./package.json');p.version='$NEW_VERSION';require('fs').writeFileSync('package.json',JSON.stringify(p,null,2))"
+          fi
+          
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "Releasing version $NEW_VERSION (was $CURRENT)"
+
+      - name: Build library
+        run: npm run build:lib
+
+      - name: Publish to npm
+        run: npm publish ./dist/angular-remix-icon --access public --provenance
+
+      - name: Commit version bump
+        run: |
+          git add package.json package-lock.json
+          git commit -m "chore: release v${{ steps.bump.outputs.new_version }}"
+          git push
+
+      - name: Create tag
+        run: |
+          git tag -a "v${{ steps.bump.outputs.new_version }}" -m "Release v${{ steps.bump.outputs.new_version }}"
+          git push origin "v${{ steps.bump.outputs.new_version }}"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.bump.outputs.new_version }}
+          name: Release v${{ steps.bump.outputs.new_version }}
+          generate_release_notes: true
