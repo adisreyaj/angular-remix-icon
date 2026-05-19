@@ -1,13 +1,10 @@
 import {
-  ChangeDetectorRef,
   Component,
+  effect,
   ElementRef,
   HostBinding,
   inject,
   input,
-  Input,
-  OnChanges,
-  SimpleChanges,
 } from '@angular/core';
 import { IconName } from './icon-names';
 import { SELECTED_ICONS } from './provider';
@@ -28,29 +25,28 @@ import { upperCamelCase } from './utils/utils';
   ],
   standalone: true,
 })
-export class AngularRemixIconComponent implements OnChanges {
+export class AngularRemixIconComponent {
   public name = input.required<IconName>();
 
   private readonly elem: ElementRef = inject(ElementRef);
-  private readonly changeDetector: ChangeDetectorRef =
-    inject(ChangeDetectorRef);
 
   private readonly icons: Record<string, string> = inject(SELECTED_ICONS, {
     skipSelf: true,
   });
 
+  constructor() {
+    effect(() => {
+      const iconName = this.name();
+      const svg = this.icons[`Ri${upperCamelCase(iconName)}`] || '';
+      if (!svg) {
+        console.warn(`Icon not found: ${iconName}\n`);
+      }
+      this.elem.nativeElement.innerHTML = svg;
+    });
+  }
+
   @HostBinding('class')
   public get classes(): string {
     return `rmx-icon rmx-icon-${this.name()}`;
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    const svg =
-      this.icons[`Ri${upperCamelCase(this.name())}`] || '';
-    if (!svg) {
-      console.warn(`Icon not found: ${this.name()}\n`);
-    }
-    this.elem.nativeElement.innerHTML = svg;
-    this.changeDetector.markForCheck();
   }
 }

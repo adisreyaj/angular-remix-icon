@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" data-testid="demo-header">
   <div>
     <img class="header__logo" src="../assets/angular-remix-icon.svg" alt="Angular Remix Icon">
   </div>
@@ -21,7 +21,7 @@
 
   <h2>Examples</h2>
   <div style="display: flex;justify-content:center">
-    <table>
+    <table data-testid="icon-examples">
       <thead>
         <tr>
           <th>Preview</th>
@@ -30,21 +30,21 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr data-testid="icon-row" data-icon-name="home-2-fill">
           <td>
             <rmx-icon name="home-2-fill"></rmx-icon>
           </td>
           <td>home-2-fill</td>
           <td>RiHome2Fill</td>
         </tr>
-        <tr>
+        <tr data-testid="icon-row" data-icon-name="mail-unread-line">
           <td>
             <rmx-icon name="mail-unread-line"></rmx-icon>
           </td>
           <td>mail-unread-line</td>
           <td>RiMailUnreadLine</td>
         </tr>
-        <tr>
+        <tr data-testid="icon-row" data-icon-name="send-plane-fill">
           <td>
             <rmx-icon name="send-plane-fill"></rmx-icon>
           </td>

@@ -128,18 +128,6 @@
             ],
             "scripts": []
           }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/angular-remix-icon-demo/e2e/protractor.conf.js",
-            "devServerTarget": "angular-remix-icon-demo:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "angular-remix-icon-demo:serve:production"
-            }
-          }
         }
       }
     }
