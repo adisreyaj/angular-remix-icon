@@ -131,6 +131,8 @@ or
 Contributions, issues and feature requests are welcome.<br />
 Feel free to check [issues page](https://github.com/adisreyaj/angular-remix-icon/issues) if you want to contribute.
 
+This repo uses [pnpm](https://pnpm.io). After cloning, run `pnpm install`, then use `pnpm run` for scripts (for example, `pnpm run build:lib`).
+
 ## Author
 
 👤 **Adithya Sreyaj**

@@ -1,20 +1,21 @@
 {
   "name": "angular-remix-icon",
   "version": "8.2.0",
+  "packageManager": "pnpm@10.12.1",
   "scripts": {
     "ng": "ng",
-    "start": "npm run build:lib && ng serve",
+    "start": "pnpm run build:lib && ng serve",
     "build": "ng build",
-    "test": "npm run test:unit && npm run test:e2e",
+    "test": "pnpm run test:unit && pnpm run test:e2e",
     "test:unit": "ng test angular-remix-icon --no-watch",
     "test:e2e": "playwright test -c e2e/playwright.config.ts",
-    "test:ci": "npm run verify:icons && npm run test:unit && npm run test:e2e",
+    "test:ci": "pnpm run verify:icons && pnpm run test:unit && pnpm run test:e2e",
     "verify:icons": "tsc -p scripts/tsconfig.json && node scripts/verify-generated-icons.js",
     "lint": "ng lint",
-    "prepublishOnly": "npm run build:lib",
+    "prepublishOnly": "pnpm run build:lib",
     "generate": "tsc -p scripts/tsconfig.json && node scripts/generate.js",
-    "build:lib": "npm run generate && ng build angular-remix-icon --configuration production",
-    "publish": "npm publish ./dist/angular-remix-icon"
+    "build:lib": "pnpm run generate && ng build angular-remix-icon --configuration production",
+    "publish": "pnpm publish ./dist/angular-remix-icon --access public"
   },
   "private": false,
   "dependencies": {

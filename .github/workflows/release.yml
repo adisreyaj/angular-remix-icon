@@ -20,15 +20,20 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.12.1
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
           registry-url: 'https://registry.npmjs.org'
-          cache: 'npm'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Configure git
         run: |
@@ -54,27 +59,27 @@ jobs:
         run: npm version ${{ steps.bump.outputs.new_version }} --no-git-tag-version --allow-same-version
 
       - name: Generate icons
-        run: npm run generate
+        run: pnpm run generate
 
       - name: Verify generated icons
-        run: npm run verify:icons
+        run: pnpm run verify:icons
 
       - name: Build library
-        run: npm run build:lib
+        run: pnpm run build:lib
 
       - name: Unit tests
-        run: npm run test:unit
+        run: pnpm run test:unit
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
+        run: pnpm exec playwright install --with-deps chromium
 
       - name: E2E tests
-        run: npm run test:e2e
+        run: pnpm run test:e2e
 
       - name: Commit version bump and tag
         run: |
           VERSION="${{ steps.bump.outputs.new_version }}"
-          git add package.json package-lock.json projects/angular-remix-icon/package.json
+          git add package.json pnpm-lock.yaml projects/angular-remix-icon/package.json
           git commit -m "chore: release v${VERSION}"
           git tag -a "v${VERSION}" -m "Release v${VERSION}"
           git push --follow-tags
@@ -87,4 +92,4 @@ jobs:
           generate_release_notes: true
 
       - name: Publish to npm
-        run: npm publish ./dist/angular-remix-icon --access public --provenance
+        run: pnpm publish ./dist/angular-remix-icon --access public --provenance
