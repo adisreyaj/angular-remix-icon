@@ -121,6 +121,4 @@ jobs:
           generate_release_notes: true
 
       - name: Publish to npm
-        run: |
-          npm install -g npm@latest
-          pnpm publish ./dist/angular-remix-icon --access public
+        run: pnpm publish ./dist/angular-remix-icon --access public --provenance
