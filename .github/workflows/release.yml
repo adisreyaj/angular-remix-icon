@@ -35,9 +35,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
-          registry-url: 'https://registry.npmjs.org'
-          package-manager-cache: false  # never use caching in release builds
+          # Node 24 ships npm >= 11.5.1 (required for trusted publishing).
+          node-version: '24'
+          cache: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -106,7 +106,13 @@ jobs:
       - name: Tag and push release
         run: |
           VERSION="${{ steps.release.outputs.new_version }}"
+          MODE="${{ github.event.inputs.mode }}"
+
           if git rev-parse "v${VERSION}" >/dev/null 2>&1; then
+            if [[ "$MODE" == "publish-only" ]]; then
+              echo "Tag v${VERSION} already exists; continuing to publish."
+              exit 0
+            fi
             echo "Tag v${VERSION} already exists." >&2
             exit 1
           fi
@@ -120,5 +126,10 @@ jobs:
           name: Release v${{ steps.release.outputs.new_version }}
           generate_release_notes: true
 
+      # Trusted publishing (OIDC): registry-url must not be set on the build setup-node
+      # step — setup-node@v4 injects NODE_AUTH_TOKEN and breaks OIDC auth (npm returns 404).
+      # Configure once on npm: Settings → Trusted publishing → GitHub Actions,
+      # repo adisreyaj/angular-remix-icon, workflow filename release.yml
       - name: Publish to npm
-        run: pnpm publish ./dist/angular-remix-icon --access public --provenance
+        working-directory: dist/angular-remix-icon
+        run: npm publish --access public
