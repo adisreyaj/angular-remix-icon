@@ -18,6 +18,10 @@
     "url": "https://github.com/adisreyaj/angular-remix-icon/issues"
   },
   "homepage": "https://github.com/adisreyaj/angular-remix-icon/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adisreyaj/angular-remix-icon.git"
+  },
   "peerDependencies": {
     "@angular/common": ">=18.0.0 <22.0.0",
     "@angular/core": ">=18.0.0 <22.0.0"
