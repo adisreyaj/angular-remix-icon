@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { AngularRemixIconComponent } from './angular-remix-icon.component';
 import { SELECTED_ICONS } from './provider';
 
@@ -63,7 +64,7 @@ describe('AngularRemixIconComponent', () => {
   });
 
   it('warns and renders empty content when the icon is not configured', () => {
-    const warnSpy = spyOn(console, 'warn');
+    const warnSpy = vi.spyOn(console, 'warn');
 
     fixture.componentRef.setInput('name', 'unknown-icon-line');
     fixture.detectChanges();

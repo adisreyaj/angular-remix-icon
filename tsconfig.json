@@ -14,14 +14,7 @@
     "inlineSources": false,
     "inlineSourceMap": false,
     "paths": {
-      "angular-remix-icon": [
-        "dist/angular-remix-icon/angular-remix-icon",
-        "dist/angular-remix-icon"
-      ],
-      "test": [
-        "dist/test/test",
-        "dist/test"
-      ]
+      "angular-remix-icon": ["dist/angular-remix-icon"]
     },
     "declaration": false,
     "experimentalDecorators": true,
