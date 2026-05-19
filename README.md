@@ -25,25 +25,35 @@ _1. Install the package_
 npm install angular-remix-icon
 ```
 
-_2. Import the module to `App Module`_
+_2. Configure the icons_
+
+For the library to work, the required icons need to be configured first.
+
+**For standalone applications (Recommended):**
 
 ```ts
-import { RemixIconModule } from "angular-remix-icon";
+import { ApplicationConfig } from '@angular/core';
+import { provideRemixIcon, RiHome2Fill, RiAncientGateFill } from 'angular-remix-icon';
+
+const ICONS = {
+  RiAncientGateFill,
+  RiHome2Fill,
+};
+
+export const appConfig: ApplicationConfig = {
+  providers: [provideRemixIcon(ICONS)],
+};
 ```
 
-_3. Import Required Icons_
-
-For the library to work, the required icons needs to be configured first
+**For NgModule applications (Deprecated):**
 
 ```ts
-...
 import {
   RiAncientGateFill,
   RiHome2Fill,
   RemixIconModule,
 } from 'angular-remix-icon';
 
-// Configure the required icons before hand
 const icons = {
   RiAncientGateFill,
   RiHome2Fill,
@@ -63,15 +73,15 @@ You can get the name from the [Remix Icon](https://remixicon.com) website
 
 ![Angular Remix Icon](https://raw.githubusercontent.com/adisreyaj/angular-remix-icon/master/remix-icon-example.png)
 
-The required icons can be imported as see above. For eg: If you need the `home-3-line`, You have to import the corresponding Icon:
+For eg: If you need the `home-3-line`, import the corresponding icon:
 
 ```ts
 import { RiHome3Line } from "angular-remix-icon";
 ```
 
-_4. Use in template_
+_3. Use in template_
 
-You can now start using the icons like so:
+You can now use the icons like so:
 
 ```html
 <rmx-icon name="home-3-line"></rmx-icon>
