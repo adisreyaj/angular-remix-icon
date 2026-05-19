@@ -1,4 +1,4 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
 import {
   provideRemixIcon,
   RiChat3Fill,
@@ -18,5 +18,5 @@ const ICONS = {
   RiSendPlaneFill,
 };
 export const APP_CONFIG: ApplicationConfig = {
-  providers: [provideRemixIcon(ICONS)],
+  providers: [provideZonelessChangeDetection(), provideRemixIcon(ICONS)],
 };

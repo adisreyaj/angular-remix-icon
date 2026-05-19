@@ -2,8 +2,12 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": "../..",
     "outDir": "../../out-tsc/app",
-    "types": []
+    "types": [],
+    "paths": {
+      "angular-remix-icon": ["dist/angular-remix-icon"]
+    }
   },
   "files": [
     "src/main.ts",
